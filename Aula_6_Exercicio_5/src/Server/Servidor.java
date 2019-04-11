@@ -48,7 +48,7 @@ public class Servidor {
 		System.out.println("Criando socket ...");
 		Thread.sleep(3000);
 		// SOCKET PARA CONEXÃO ENTRE CLIENT E SERVER
-		DatagramSocket socket = new DatagramSocket(30000);
+		DatagramSocket socket = new DatagramSocket(45000);
 		System.out.println("Criando pacote para armazenar mensagem recebida...");
 		Thread.sleep(3000);
 		// CRIANDO ESTRUTURA DE ARMAZENAMENTO DE PACOTE

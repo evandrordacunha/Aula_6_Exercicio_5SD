@@ -10,6 +10,8 @@ import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.util.Scanner;
 
+import org.omg.CORBA.Environment;
+
 public class Cliente {
 
 	/**
@@ -26,6 +28,16 @@ public class Cliente {
 
 	public static void main(String[] args) {
 
+		Cliente cliente = new Cliente();
+		try {
+			cliente.enviarMensagem();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void enviarMensagem() throws InterruptedException, SocketException {
@@ -41,7 +53,7 @@ public class Cliente {
 			System.out.println("Criando Socket para envio de mensagem...");
 			Thread.sleep(3000);
 			// CRIANDO O SOCKET PARA A CONEXÃO COM O SERVER
-			DatagramSocket socket = new DatagramSocket(30000);
+			DatagramSocket socket = new DatagramSocket(45000);
 			// BUFFER PARA ARMAZENAMENTO DA RESPOSTA DO USUÁRIO EM BYTES
 			System.out.println("Socket criado com sucesso!");
 			Thread.sleep(3000);
