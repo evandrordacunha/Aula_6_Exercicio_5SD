@@ -83,6 +83,7 @@ public class Cliente {
 			System.out.println("Enviando pacote...");
 			Thread.sleep(3000);
 			socket.send(PacoteEnvio);
+			//CONFIRMAÇÃO DE ENVIO
 			System.out.println("Pacote enviado com sucesso!");
 			Thread.sleep(3000);
 
@@ -99,16 +100,19 @@ public class Cliente {
 		// RECEBENDO RESPOSTA DO SERVER
 		System.out.println("Criando buffer para resposta...");
 		Thread.sleep(3000);
+		//BUFFER PARA ARMAZENAMENTO DA RESPOSTA RECEBIDA VINDA DO SERVER
 		byte[] respostaServer = new byte[1024];
 		System.out.println("Buffer criado!");
 		Thread.sleep(3000);
 		try {
 			System.out.println("Criando pacote para recebimento...");
 			Thread.sleep(3000);
+			//CRIANDO PACOTE DE RECEBIMENTO
 			DatagramPacket pacoteRecebido = new DatagramPacket(respostaServer, respostaServer.length);
 			System.out.println("Pacote criado com sucesso!");
 			Thread.sleep(3000);
 
+			//RECEBENDO O PACOTE OU ENCERRANDO COM TIME OUT A APLICAÇÃO
 			socket.setSoTimeout(1000);
 			System.out.println("Recebendo pacote...");
 			Thread.sleep(3000);
@@ -117,7 +121,6 @@ public class Cliente {
 			System.out.println("Pacote transferido com sucesso!");
 			Thread.sleep(3000);
 
-			// mostra a resposta
 			// CONVERTENDO EM INTEIRO A A RESPOSTA
 			String respostaRecebida = ByteBuffer.wrap(respostaServer).toString();
 			System.out.println("Resposta" + " = " + respostaRecebida);
@@ -126,6 +129,7 @@ public class Cliente {
 			// fecha o socket
 			System.out.println("Fechando conexão...");
 			Thread.sleep(3000);
+			//FECHANDO A CONEXÃO
 			socket.close();
 			System.out.println("Conexão finalizada!");
 		}
